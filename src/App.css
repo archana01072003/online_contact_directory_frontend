@@ -1,0 +1,38 @@
+.form-container{
+  background-color: grey;
+  text-align: center;
+  color:white;
+  margin-left: 20%;
+  margin-right: 20%;
+  border:5px solid white;
+  margin-top: 20px;
+}
+button{
+  color:white;
+  background-color: blue;
+  padding:10px;
+  border-radius: 10%;
+  margin:20px;
+  border:1px solid white;
+  cursor: pointer;
+}
+label,input[type="text"],input[type="password"]{
+  margin:10px;
+  padding:10px;
+  font-size: 15px;
+  
+}
+table{
+  background-color: grey;
+  color:white;
+  margin-left: 30%;
+  margin-right: 20%;
+  padding:8%;
+  margin-top: 5%;
+  border:5px solid blue;
+}
+th,td,tr{
+  font-size: 20px;
+  border:1px solid white;
+  
+}
