@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import axios from "axios";
+import { Link, useNavigate } from 'react-router-dom';
+import Home from './Home';
 
 const Signup = () => {
     const[usersignup,setUserSignup] = useState({
@@ -9,6 +11,7 @@ const Signup = () => {
         mobileNo : ""
 
     })
+    const navigate = useNavigate();
     const handleChange = (e) =>{
         const value = e.target.value;
         setUserSignup({...usersignup,[e.target.name] : value});
@@ -18,7 +21,7 @@ const Signup = () => {
         
         axios.post('http://localhost:8080/signup',usersignup)
         .then((res)=>{
-
+            
             alert("account created , Please login");
             setUserSignup({
                 name : "",
@@ -26,7 +29,7 @@ const Signup = () => {
                 password : "",
                 mobileNo : ""
             })
-            
+            navigate('/login');
         })
         .catch((e)=>{
             console.log("error");
@@ -34,6 +37,7 @@ const Signup = () => {
     }
   return (
     <>
+    <Home/>
     <form onSubmit={signupUser} className='form-container'>
     <h3>Signup Form</h3>
     <label>Name :</label>
@@ -45,6 +49,7 @@ const Signup = () => {
     <label>Mobile No. :</label>
     <input type='text' name='mobileNo' placeholder='Enter Your Mobile No.' onChange={(e)=>{handleChange(e)}}/><br></br>
     <button>Signup</button>
+    
     </form>
     </>
   )

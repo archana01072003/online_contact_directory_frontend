@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
+import Header from './Header';
 const Dashboard = () => {
     const user = JSON.parse(sessionStorage.getItem('user'));
     const userId = user.userId;
@@ -24,6 +25,7 @@ const Dashboard = () => {
     },[])
   return (
     <>
+        <Header/>
         <table>
             <thead>
             <tr>

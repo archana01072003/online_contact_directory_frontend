@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios';
+import Header from './Header';
 const AddContact = () => {
     const user = JSON.parse(sessionStorage.getItem('user'));
     const userId = user.userId;
@@ -23,6 +24,7 @@ const AddContact = () => {
     }
   return (
     <>
+    <Header/>
     <form onSubmit={saveContact} className='form-container'>
         <h3>Add Contact</h3>
         <label >Contact Name  : </label>

@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Header from './Header';
+import Home from './Home';
 
 const Login = () => {
+  
   const [userlogin, setUserLogin] = useState({
     email: "",
     password: ""
@@ -22,13 +25,14 @@ const Login = () => {
       // Authentication was successful
       console.log(res.data);
       
-
+      
       sessionStorage.setItem('user', JSON.stringify(res.data));
-      alert("User logged in successfully");
-
+      // alert("User logged in successfully");
+      navigate('/dashboard')
       // Redirect to a different route upon successful login
       // navigate('/dashboard');
     } else if (res.status === 401) {
+      
       // Authentication failed (invalid username or password)
       alert("Invalid username and password");
       // You can also clear the input fields, if needed.
@@ -41,6 +45,7 @@ const Login = () => {
         email : "",
         password : ""
     })
+    
     navigate("/login")
     alert("User is not logged in");
     
@@ -51,6 +56,7 @@ const Login = () => {
 
   return (
     <>
+    <Home/>
       <form onSubmit={login} className='form-container'>
         <h3>Login</h3>
         <label>Email: </label>
@@ -59,6 +65,7 @@ const Login = () => {
         <input type='password' name='password' placeholder="Enter Your Password" onChange={handleChange} /><br />
         <button>Login</button>
       </form>
+
     </>
   );
 };

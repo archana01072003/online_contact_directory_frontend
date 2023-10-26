@@ -36,3 +36,20 @@ th,td,tr{
   border:1px solid white;
   
 }
+span{
+  color:rgb(7, 1, 32);
+  font-size: 19px;
+}
+a{
+  float : right;
+  margin-right: 5%;
+  text-decoration: none;
+  color:white;
+  font-size: 17px;
+  
+}
+.header-container{
+  background-color: green;
+  padding:10px;
+  
+}
