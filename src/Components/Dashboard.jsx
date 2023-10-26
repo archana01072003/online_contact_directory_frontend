@@ -1,13 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import Header from './Header';
+import { useNavigate } from 'react-router-dom';
 const Dashboard = () => {
     const user = JSON.parse(sessionStorage.getItem('user'));
-    const userId = user.userId;
+    let userId = null;
     const[contact,setContact] = useState([]);
     const[loading,setLoading] = useState(true);
+    const navigate = useNavigate();
     useEffect(()=>{
         
+        if(user != null) {
+            userId = user.userId;
+        } else {
+            navigate('/login');
+        }
+
         const fetchData = async()=>{
             setLoading(true);
             try{
